@@ -1,0 +1,15 @@
+artifact_uri: file:///home/endie/Projects/MLOps/anaconda_sklearn/mlflow/mlruns/0/156c0f00d6234691a2060aed94a92f8f/artifacts
+end_time: 1716783172512
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 156c0f00d6234691a2060aed94a92f8f
+run_name: crawling-trout-906
+run_uuid: 156c0f00d6234691a2060aed94a92f8f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716783144959
+status: 3
+tags: []
+user_id: endie
