@@ -5,4 +5,4 @@
     * Model Registry
     * Project
     the simplest way to run mlflow after installation is 
-    >> mlflow server --backend-store-uri sqlite3:///mlflow-backend
+    >> mlflow server --backend-store-uri sqlite:///mlflow.db
