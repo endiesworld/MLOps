@@ -10,7 +10,7 @@ from sklearn.metrics import mean_squared_error
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 mlflow.set_experiment("random-forest-hyperopt")
-mlflow.sklearn.autolog()
+# mlflow.sklearn.autolog()
 
 
 def load_pickle(filename: str):
@@ -21,7 +21,7 @@ def load_pickle(filename: str):
 @click.command()
 @click.option(
     "--data_path",
-    default="./output",
+    default="./data_output",
     help="Location where the processed NYC taxi trip data was saved"
 )
 @click.option(

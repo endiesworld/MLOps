@@ -45,7 +45,7 @@ def train_and_log_model(data_path, params):
 @click.command()
 @click.option(
     "--data_path",
-    default="./output",
+    default="./data_output",
     help="Location where the processed NYC taxi trip data was saved"
 )
 @click.option(
@@ -55,8 +55,8 @@ def train_and_log_model(data_path, params):
     help="Number of top models that need to be evaluated to decide which one to promote"
 )
 def run_register_model(data_path: str, top_n: int):
-
-    client = MlflowClient()
+    MLFLOW_TRACKING_URI = "sqlite:///mlflow.db"
+    client = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)
 
     # Retrieve the top_n model runs and log the models
     experiment = client.get_experiment_by_name(HPO_EXPERIMENT_NAME)
@@ -71,10 +71,11 @@ def run_register_model(data_path: str, top_n: int):
 
     # Select the model with the lowest test RMSE
     experiment = client.get_experiment_by_name(EXPERIMENT_NAME)
-    # best_run = client.search_runs( ...  )[0]
+    best_run = client.search_runs(experiment)[0]
 
+    model_uri = f"runs:/{best_run}/model"
     # Register the best model
-    # mlflow.register_model( ... )
+    mlflow.register_model(model_uri=model_uri, name= HPO_EXPERIMENT_NAME)
 
 
 if __name__ == '__main__':
